@@ -3,6 +3,8 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+const API_BASE_URL = import.meta.env.VITE_API_URL;
+
 import {
   Clock,
   Briefcase,
@@ -35,7 +37,7 @@ const QuestionList = () => {
       
       console.log("Using detailsId:", detailsId);
       
-      const response = await fetch("http://localhost:5000/api/interview/start", {
+     const response = await fetch(`${API_BASE_URL}/api/interview/start`, {
         method: "POST",
         credentials: "include",
         headers: { "Content-Type": "application/json",  "Authorization": `Bearer ${token}` },
