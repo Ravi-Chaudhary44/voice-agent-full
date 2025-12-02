@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+const BASE_URL = import.meta.env.VITE_API_URL;
+
 import {
   Brain,
   Sparkles,
@@ -45,7 +47,7 @@ const Dashboard = () => {
           return;
         }
 
-        const res = await fetch("http://localhost:5000/api/user/me", {
+        const res = await fetch(`${BASE_URL}/user/me`,{
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -88,8 +90,7 @@ const Dashboard = () => {
     try {
       const token = localStorage.getItem("token");
 
-      const response = await fetch(
-        "http://localhost:5000/api/question/generate-questions",
+      const response = await fetch(`${BASE_URL}/question/generate-questions`,
         {
           method: "POST",
           headers: {
