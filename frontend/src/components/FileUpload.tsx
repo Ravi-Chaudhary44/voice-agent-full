@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Upload, FileText, X, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+const API_BASE_URL = import.meta.env.VITE_API_URL;
 
 interface FileUploadProps {
   onFileProcessed: (textContent: string) => void;
@@ -23,7 +24,7 @@ const FileUpload: React.FC<FileUploadProps> = ({ onFileProcessed, disabled = fal
       const formData = new FormData();
       formData.append('file', file);
 
-      const response = await fetch("http://localhost:5000/api/question/upload-file", {
+      const response = await fetch(`${API_BASE_URL}/api/question/upload-file`, {
         method: "POST",
         headers: {
           "Authorization": `Bearer ${token}`
@@ -199,5 +200,6 @@ const FileUpload: React.FC<FileUploadProps> = ({ onFileProcessed, disabled = fal
     </div>
   );
 };
+
 
 export default FileUpload;
