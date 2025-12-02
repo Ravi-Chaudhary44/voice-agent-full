@@ -5,7 +5,7 @@ import cookieParser from "cookie-parser";
 const app = express();
 
 app.use(cors({
-  origin: "http://localhost:8080", // only allow local frontend
+  origin: "https://voice-agent-full-1.onrender.com", 
   credentials: true
 }));
 
