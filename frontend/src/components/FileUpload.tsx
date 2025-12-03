@@ -24,7 +24,7 @@ const FileUpload: React.FC<FileUploadProps> = ({ onFileProcessed, disabled = fal
       const formData = new FormData();
       formData.append('file', file);
 
-      const response = await fetch(`${API_BASE_URL}/api/question/upload-file`, {
+      const response = await fetch(`${API_BASE_URL}/question/upload-file`, {
         method: "POST",
         headers: {
           "Authorization": `Bearer ${token}`
@@ -203,3 +203,4 @@ const FileUpload: React.FC<FileUploadProps> = ({ onFileProcessed, disabled = fal
 
 
 export default FileUpload;
+
