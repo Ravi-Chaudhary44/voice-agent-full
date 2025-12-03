@@ -62,7 +62,7 @@ const Feedback: React.FC = () => {
       console.log(`Fetching feedback for session: ${sessionId}, attempt: ${retryCount + 1}`);
 
       const response = await fetch(
-        `${API_BASE_URL}/api/interview/result/${sessionId}`,
+        `${API_BASE_URL}/interview/result/${sessionId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
