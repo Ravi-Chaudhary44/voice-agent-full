@@ -37,7 +37,7 @@ const QuestionList = () => {
       
       console.log("Using detailsId:", detailsId);
       
-     const response = await fetch(`${API_BASE_URL}/api/interview/start`, {
+     const response = await fetch(`${API_BASE_URL}/interview/start`, {
         method: "POST",
         credentials: "include",
         headers: { "Content-Type": "application/json",  "Authorization": `Bearer ${token}` },
