@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Vapi from "@vapi-ai/web";
 import { Mic, Phone, Clock, Loader2 } from "lucide-react";
+const API = import.meta.env.VITE_API_URL;
 
 const InterviewPage = () => {
   const { sessionId } = useParams();
@@ -84,7 +85,7 @@ const InterviewPage = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/interview/answer/${sessionId}`,
+          `${API}/interview/answer/${sessionId}`,
         {
           method: "PUT",
           headers: {
@@ -113,7 +114,7 @@ const InterviewPage = () => {
       }
       try {
         const response = await fetch(
-          `http://localhost:5000/api/interview/get/${sessionId}`,
+          `${API}/interview/get/${sessionId}`,
           { 
             headers: {
               "Content-Type": "application/json",
